@@ -13,7 +13,7 @@ db.once('open', function() {
   // Schema methods - note to not use arrow function as they treat 'this' differently
   catSchema.methods.meow = function () {
     console.log('Feed me bitch or else you will forever rue the day you crossed ' + this.name);
-  }
+  };
 
   // Compile model and make an instance
   const Cat = mongoose.model('Cat', catSchema);
@@ -28,7 +28,7 @@ db.once('open', function() {
   bundles.save((err, bundles) => {
     if (err) return console.error(err);
     bundles.meow();
-  })
+  });
 
   Cat.find((err, cats) => {
     if (err) return console.error(err);

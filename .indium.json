@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "name": "Mtg Reservoir",
+      "type": "node",
+      "program": "node",
+      "args": "src/index.js"
+    }
+  ]
+}
