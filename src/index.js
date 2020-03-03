@@ -1,14 +1,9 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/mtg', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  // Schema definition
-  const catSchema = new mongoose.Schema({
-    name: String,
-    color: String
-  });
 
   // Schema methods - note to not use arrow function as they treat 'this' differently
   catSchema.methods.meow = function () {
