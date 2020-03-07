@@ -4,7 +4,8 @@
       "name": "Mtg Reservoir",
       "type": "node",
       "program": "node",
-      "args": "src/index.js"
+      "root": "src",
+      "args": "index.js"
     }
   ]
 }
