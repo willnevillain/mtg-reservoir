@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const CardSchema = new mongoose.Schema({
+const PrintingSchema = new mongoose.Schema({
   colorIdentity: { type: [String], index: true },
   convertedManaCost: { type: Number, index: true },
   hasFoil: Boolean,
@@ -19,4 +19,4 @@ const CardSchema = new mongoose.Schema({
   multiverseId: Number
 });
 
-mongoose.model('Card', CardSchema);
+mongoose.model('Printing', PrintingSchema);
