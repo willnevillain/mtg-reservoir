@@ -1,4 +1,4 @@
-* TODO Printing and set backfill script
+* TODO [ ] Printing and set backfill script
 Design knowing that a lamba to backfill with new printings will run regularly in the future
 * TODO Intial GET APIs exposed for fetching printing and set information
 * TODO Concept of user and auth flow
