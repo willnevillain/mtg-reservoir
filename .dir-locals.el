@@ -3,7 +3,7 @@
              (progn
                (require 'f)
                (require 's)
-               (let ((maybe-env-path (concat(projectile-project-root) ".env")))
+               (let ((maybe-env-path (concat (projectile-project-root) ".env")))
                  (when (s-present? (concat (projectile-project-root) ".env"))
                    (let (
                          (pairs (mapcar #'(lambda (it) (s-split "=" it))
