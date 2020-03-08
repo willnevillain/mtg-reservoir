@@ -1,1 +1,14 @@
+* TODO Printing and set backfill script
+Design knowing that a lamba to backfill with new printings will run regularly in the future
+* TODO Intial GET APIs exposed for fetching printing and set information
+* TODO Concept of user and auth flow
+- User schema
+- Authentication and authorization
+- Create assuming that eventually there will be an API to create new users
+* TODO Define schema for user collection cards model
+* TODO POST API for user uploaded card
+* TODO Application containerized
+- Dockerfile and reasonable config
 * TODO Cloud MongoDB instance
+- Either managed or own mongo container configured
+* TODO Cloud function to update set/printings daily
