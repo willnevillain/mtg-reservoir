@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./app/routes');
-const models = require('./app/models');
+const importer = require('./scripts/mtg-importer');
+const loadModels = require('./app/models');
 
 const app = express();
 
@@ -13,6 +14,11 @@ app.use(express.json());
 // Start Route Definitions
 app.get('/', (req, res) => {
   res.send('Root path');
+});
+
+app.post('/mtg-import', (req, res) => {
+  importer();
+  res.status(200).send('OK');
 });
 
 app.use(routes);
@@ -29,6 +35,7 @@ const connect = () => {
     },
     (err) => {
       console.log(err ? `** DB Connection - Error: ${err}` : `** DB Connection - OK`);
+      loadModels();
     }
   );
 };
