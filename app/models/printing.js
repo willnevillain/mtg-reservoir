@@ -11,6 +11,7 @@ const PrintingSchema = new mongoose.Schema({
   isReserved: Boolean,
   manaCost: String,
   name: { type: String, index: true },
+  printing: String,
   printings: [String],
   rarity: String,
   uuid: { type: String, unique: true },
