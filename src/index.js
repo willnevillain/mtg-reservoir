@@ -1,10 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv/config');
+require('dotenv').config();
 
 const app = express();
 
-console.log('Hello, World!');
+app.use(express.json());
+
+const printingsRoute = require('./routes/printings');
+
+
+app.use('/printings', printingsRoute);
+
 // Routes
 app.get('/', (req, res) => {
   res.send('Root path');
