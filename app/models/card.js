@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const UserCardSchema = new mongoose.Schema({
+const CardSchema = new mongoose.Schema({
   condition: String,
   location: { type: String, index: true },
   isSigned: Boolean,
@@ -12,4 +12,4 @@ const UserCardSchema = new mongoose.Schema({
   tags: { type: [String], index: true },
 });
 
-mongoose.model('UserCard', UserCardSchema);
+mongoose.model('Card', CardSchema);

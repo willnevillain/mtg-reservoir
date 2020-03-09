@@ -25,6 +25,10 @@ db.once('open', function() {
   console.log('Connection to DB established.');
 });
 
+app.use((err, req, res, next) => {
+  return res.status(500).json({ error: err });
+});
+
 
 // Begin listening
 app.listen(3000);
