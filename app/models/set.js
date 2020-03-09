@@ -8,4 +8,4 @@ const SetSchema = new Schema({
   block: String
 });
 
-mongoose.model('Set', SetSchema);
+module.exports = mongoose.model('Set', SetSchema);

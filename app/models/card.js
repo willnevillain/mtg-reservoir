@@ -12,4 +12,4 @@ const CardSchema = new mongoose.Schema({
   tags: { type: [String], index: true },
 });
 
-mongoose.model('Card', CardSchema);
+module.exports = mongoose.model('Card', CardSchema);

@@ -19,4 +19,4 @@ const PrintingSchema = new mongoose.Schema({
   multiverseId: Number
 });
 
-mongoose.model('Printing', PrintingSchema);
+module.exports = mongoose.model('Printing', PrintingSchema);

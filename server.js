@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const routes = require('./app/routes');
+const models = require('./app/models');
 
 const app = express();
 
@@ -12,6 +14,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Root path');
 });
+
+app.use(routes);
 // End Route Definitions
 
 // Start DB Connection and server start logic
@@ -24,13 +28,11 @@ const connect = () => {
       useUnifiedTopology: true
     },
     (err) => {
-      const dbStatus = err ? `* DB Connection - Error: ${err}` : `* DB Connection - OK`;
-      console.log('********************');
-      console.log('* Server Starting');
-      console.log(dbStatus);
+      console.log(err ? `** DB Connection - Error: ${err}` : `** DB Connection - OK`);
     }
   );
 };
+connect();
 mongoose.connection.on('error', console.log);
 mongoose.connection.on('disconnected', connect);
 // End DB Connection Logic
@@ -43,9 +45,9 @@ app.use((err, req, res, next) => {
 
 // Start listening for requests
 app.listen(app.get('port'), (err) => {
-  console.log(`* Port: ${app.get('port')}`);
-  console.log(`* Started listening at: ${new Date().toUTCString()}`);
-  console.log('********************');
+  console.log('** Server starting');
+  console.log(`** Port: ${app.get('port')}`);
+  console.log(`** Started listening at: ${new Date().toUTCString()}`);
 });
 
 module.exports = app;
