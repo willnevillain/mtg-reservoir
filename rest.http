@@ -3,3 +3,6 @@ GET http://localhost:3000/printings
 
 # GET Cards
 GET http://localhost:3000/cards
+
+# Import cards
+POST http://localhost:3000/mtg-import

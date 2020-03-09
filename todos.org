@@ -1,6 +1,8 @@
 * To Anyone reading this in GitHub - this is best viewed in an editor supporting =org-mode (.org)= files, ideally Emacs.
-* TODO Printing and set backfill script
+* DONE Printing and set backfill script
+- State "DONE"       from "TODO"       [2020-03-09 Mon 18:34]
 Design knowing that a lamba to backfill with new printings will run regularly in the future
+* TODO DB operation middleware that handles error states
 * TODO Testing framework
 * TODO Intial GET APIs exposed for fetching printing and set information
 * TODO Concept of user and auth flow
