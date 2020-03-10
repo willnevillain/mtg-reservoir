@@ -4,10 +4,9 @@ const model = require('../models/printing');
 
 exports.get = async (req, res) => {
   try {
-    const result = await db.get(model, query);
+    const result = await db.get(model, req.query);
     res.status(200).json(result);
-  }
-  catch (err) {
+  } catch (err) {
     handleError(res, err);
   }
 };

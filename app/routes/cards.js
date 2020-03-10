@@ -3,9 +3,8 @@ const controller = require('../controllers/cards');
 
 const router = express.Router();
 
-
 router.get('/', async (req, res) => {
-  const cards = await controller.getAll();
+  const cards = await controller.get();
   res.status(200).json(cards);
 });
 

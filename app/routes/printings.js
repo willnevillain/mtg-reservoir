@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router.get('/', async (req, res) => {
-  const printings = await controller.getAll();
+  const printings = await controller.get();
   res.status(200).json(printings);
 });
 
