@@ -1,13 +1,15 @@
+const db = require('../middleware/db');
+const { handleError } = require('../middleware/utils');
 const model = require('../models/card');
 
-exports.getAll = async (req, res) => {
-  return new Promise((resolve, reject) => {
-    model.find((err, items) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(items);
-    });
-  });
+exports.get = async (req, res) => {
+  try {
+    const result = await db.get(model, query);
+    res.status(200).json(result);
+  }
+  catch (err) {
+    handleError(res, err);
+  }
 };
+
 
