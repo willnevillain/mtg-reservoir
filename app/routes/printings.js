@@ -4,9 +4,8 @@ const controller = require('../controllers/printings');
 const router = express.Router();
 
 
-router.get('/', async (req, res) => {
-  const printings = await controller.get();
-  res.status(200).json(printings);
+router.get('/:name', (req, res) => {
+  controller.get(req, res, { name: req.params.name });
 });
 
 // router.get('/:id', async (req, res) => {

@@ -1,5 +1,5 @@
 # GET Printings
-GET http://localhost:3000/printings
+GET http://localhost:3000/printings/Duress
 
 # GET Cards
 GET http://localhost:3000/cards
