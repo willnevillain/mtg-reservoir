@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-
 const PrintingSchema = new mongoose.Schema({
   colorIdentity: { type: [String], index: true },
   convertedManaCost: { type: Number, index: true },
@@ -17,7 +15,7 @@ const PrintingSchema = new mongoose.Schema({
   uuid: { type: String, unique: true },
   type: String,
   types: [String],
-  multiverseId: Number
+  multiverseId: Number,
 });
 
 module.exports = mongoose.model('Printing', PrintingSchema);

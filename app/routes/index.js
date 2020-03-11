@@ -1,16 +1,7 @@
-const express = require('express');
-const fs = require('fs');
+const router = require('express').Router();
 
-const router = express.Router();
-
-// TODO load auth here?
-
-fs.readdirSync(`${__dirname}/`).forEach((file) => {
-  const routeName = file.split('.').slice(0, -1).join('.').toString(); // Handle periods in name
-  if (routeName !== 'index') {
-    router.use(`/${routeName}`, require(`./${routeName}`));
-  }
-});
+router.use('/cards', require('./cards'));
+router.use('/printings', require('./printings'));
 
 // Global 404 handler
 router.use('*', (req, res) => {

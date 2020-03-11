@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-
-const SetSchema = new Schema({
+const SetSchema = new mongoose.Schema({
   code: { type: String, unique: true },
   name: String,
 });

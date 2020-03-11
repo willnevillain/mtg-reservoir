@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./app/routes');
 const importer = require('./scripts/mtg-importer');
-const loadModels = require('./app/models');
 
 const app = express();
 
@@ -31,30 +30,26 @@ const connect = () => {
     {
       keepAlive: true,
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
     },
     (err) => {
-      console.log(err ? `** DB Connection - Error: ${err}` : `** DB Connection - OK`);
-      loadModels();
-    }
+      console.log(err ? `** DB Connection - Error: ${err}` : '** DB Connection - OK'); // eslint-disable-line no-console
+    },
   );
 };
 connect();
-mongoose.connection.on('error', console.log);
+mongoose.connection.on('error', console.log); // eslint-disable-line no-console
 mongoose.connection.on('disconnected', connect);
 // End DB Connection Logic
 
-// Start middleware registration
-app.use((err, req, res, next) => {
-  return res.status(500).json({ error: err });
-});
-// End middleware registration
-
 // Start listening for requests
 app.listen(app.get('port'), (err) => {
-  console.log('** Server starting');
-  console.log(`** Port: ${app.get('port')}`);
-  console.log(`** Started listening at: ${new Date().toUTCString()}`);
+  if (err) {
+    console.log(`** Error Starting Server ${err}`); // eslint-disable-line no-console
+  }
+  console.log('** Server starting'); // eslint-disable-line no-console
+  console.log(`** Port: ${app.get('port')}`); // eslint-disable-line no-console
+  console.log(`** Started listening at: ${new Date().toUTCString()}`); // eslint-disable-line no-console
 });
 
 module.exports = app;
